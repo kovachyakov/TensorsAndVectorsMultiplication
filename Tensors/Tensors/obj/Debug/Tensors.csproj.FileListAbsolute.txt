@@ -8,3 +8,13 @@ C:\Users\yakov\source\repos\Tensors\Tensors\obj\Debug\Tensors.csproj.CoreCompile
 C:\Users\yakov\source\repos\Tensors\Tensors\obj\Debug\Tensors.exe
 C:\Users\yakov\source\repos\Tensors\Tensors\obj\Debug\Tensors.pdb
 C:\Users\yakov\source\repos\Tensors\Tensors\obj\Debug\Tensors.Form1.resources
+C:\Users\yakov\Desktop\TensorsAndVectorsMultiplication\Tensors\Tensors\bin\Debug\Tensors.exe.config
+C:\Users\yakov\Desktop\TensorsAndVectorsMultiplication\Tensors\Tensors\bin\Debug\Tensors.exe
+C:\Users\yakov\Desktop\TensorsAndVectorsMultiplication\Tensors\Tensors\bin\Debug\Tensors.pdb
+C:\Users\yakov\Desktop\TensorsAndVectorsMultiplication\Tensors\Tensors\obj\Debug\Tensors.csprojResolveAssemblyReference.cache
+C:\Users\yakov\Desktop\TensorsAndVectorsMultiplication\Tensors\Tensors\obj\Debug\Tensors.Form1.resources
+C:\Users\yakov\Desktop\TensorsAndVectorsMultiplication\Tensors\Tensors\obj\Debug\Tensors.Properties.Resources.resources
+C:\Users\yakov\Desktop\TensorsAndVectorsMultiplication\Tensors\Tensors\obj\Debug\Tensors.csproj.GenerateResource.Cache
+C:\Users\yakov\Desktop\TensorsAndVectorsMultiplication\Tensors\Tensors\obj\Debug\Tensors.csproj.CoreCompileInputs.cache
+C:\Users\yakov\Desktop\TensorsAndVectorsMultiplication\Tensors\Tensors\obj\Debug\Tensors.exe
+C:\Users\yakov\Desktop\TensorsAndVectorsMultiplication\Tensors\Tensors\obj\Debug\Tensors.pdb

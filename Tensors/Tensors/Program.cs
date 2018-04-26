@@ -281,6 +281,15 @@ namespace Tensors
                 Text = "=",
             };
 
+            var label = new Label()
+            {
+                Location = new Point(actCombobox.Location.X+5, actCombobox.Location.Y + 30),
+                Size = new Size(actCombobox.Size.Width, actCombobox.Size.Height +20),
+                Text = "It can't multiply 2 tensors =(",
+                Visible = false,
+                
+            };
+
 
             for (int i = 0; i < 3; i++)
             {
@@ -296,6 +305,7 @@ namespace Tensors
             Controls.Add(element1);
             Controls.Add(actCombobox);
             Controls.Add(element2);
+            Controls.Add(label);
 
             Controls.Add(button);
             Controls.Add(eraseButton);
@@ -326,10 +336,25 @@ namespace Tensors
                 ComboBox a = (ComboBox)sender;
                 act = (string)a.SelectedItem;
 
+                for (int i = 0; i < 3; i++)
+                {
+                    for (int j = 0; j < 3; j++)
+                    {
+                        arraytextbox[i, j].Enabled = true;
+                        arraytextbox1[i, j].Enabled = true;
+                    }
+                }
+                element1.Enabled = true;
+                element2.Enabled = true;
+                element1.SelectedIndex = 1;
+                element2.SelectedIndex = 1;
+
                 if ((string)a.SelectedItem == "tr")
                 {
                     element1.SelectedIndex = 1;
                     element1.Enabled = false;
+                    element2.SelectedIndex = 1;
+                    element2.Enabled = false;
                     for (int i = 0; i < 3; i++)
                     {
                         for (int j = 0; j < 3; j++)
@@ -340,17 +365,44 @@ namespace Tensors
                     }
 
                 }
-                else if (!arraytextbox[1, 1].Enabled)
+                else if((string)a.SelectedItem == "⊗")
                 {
-                    element1.Enabled = true;
-                    for (int i = 0; i < 3; i++)
-                    {
-                        for (int j = 0; j < 3; j++)
-                        {
-                            arraytextbox[i, j].Enabled = true;
-                        }
-                    }
+                    element1.SelectedIndex = 0;
+                    element1.Enabled = false;
+                    element2.SelectedIndex = 0;
+                    element2.Enabled = false;
+
                 }
+                else if ((string)a.SelectedItem == "×")
+                {
+                    if (arraytextbox[1,1].Enabled)
+                    {
+
+                    }
+
+                    label.Visible = true;
+
+
+                }
+                else if ( ((string)a.SelectedItem == "**") ||
+                          ((string)a.SelectedItem == "*×") ||
+                          ((string)a.SelectedItem == "×*") ||
+                          ((string)a.SelectedItem == "××") )
+                {
+                    element1.SelectedIndex = 1;
+                    element1.Enabled = false;
+                    element2.SelectedIndex = 1;
+                    element2.Enabled = false;
+
+                }
+
+                if (((string)a.SelectedItem != "×")&&(label.Visible))
+                {
+                    label.Visible = false;
+                }
+                
+
+                
             }
 
             void Calculate(object sender, EventArgs e)
@@ -550,38 +602,36 @@ namespace Tensors
 
             void Copy(object sender, EventArgs e)
             {
-                if (element1.Enabled)
+                if ((string)actCombobox.SelectedItem != "tr")
                 {
-                    if (answTextbox[1,1].Enabled)
+                    if (answTextbox[0,0].Enabled)
                     {
-                        element1.SelectedIndex = 0;
+                        if (!arraytextbox[0, 0].Enabled)
+                        {
+                            element1.SelectedIndex = 0;
 
-                        //copy vector
-                        arraytextbox[0, 1].Text = answTextbox[0, 1].Text;
-                        arraytextbox[1, 1].Text = answTextbox[1, 1].Text;
-                        arraytextbox[2, 1].Text = answTextbox[2, 1].Text;
+                            //copy vector
+                            arraytextbox[0, 1].Text = answTextbox[0, 1].Text;
+                            arraytextbox[1, 1].Text = answTextbox[1, 1].Text;
+                            arraytextbox[2, 1].Text = answTextbox[2, 1].Text;
+                        }
+                        if ((answTextbox[2, 2].Enabled) && (arraytextbox[0, 0].Enabled))
+                        {
+                            element1.SelectedIndex = 1;
+                            //copy tensor
+                            arraytextbox[0, 0].Text = answTextbox[0, 0].Text;
+                            arraytextbox[1, 0].Text = answTextbox[1, 0].Text;
+                            arraytextbox[2, 0].Text = answTextbox[2, 0].Text;
+
+                            arraytextbox[0, 1].Text = answTextbox[0, 1].Text;
+                            arraytextbox[1, 1].Text = answTextbox[1, 1].Text;
+                            arraytextbox[2, 1].Text = answTextbox[2, 1].Text;
+
+                            arraytextbox[0, 2].Text = answTextbox[0, 2].Text;
+                            arraytextbox[1, 2].Text = answTextbox[1, 2].Text;
+                            arraytextbox[2, 2].Text = answTextbox[2, 2].Text;
+                        }
                     }
-                    if (answTextbox[2, 2].Enabled)
-                    {
-                        element1.SelectedIndex = 1;
-                        //copy tensor
-                        arraytextbox[0, 0].Text = answTextbox[0, 0].Text;
-                        arraytextbox[1, 0].Text = answTextbox[1, 0].Text;
-                        arraytextbox[2, 0].Text = answTextbox[2, 0].Text;
-
-                        arraytextbox[0, 1].Text = answTextbox[0, 1].Text;
-                        arraytextbox[1, 1].Text = answTextbox[1, 1].Text;
-                        arraytextbox[2, 1].Text = answTextbox[2, 1].Text;
-
-                        arraytextbox[0, 2].Text = answTextbox[0, 2].Text;
-                        arraytextbox[1, 2].Text = answTextbox[1, 2].Text;
-                        arraytextbox[2, 2].Text = answTextbox[2, 2].Text;
-                    }
-
-
-
-
-
                 }
             }
         }
