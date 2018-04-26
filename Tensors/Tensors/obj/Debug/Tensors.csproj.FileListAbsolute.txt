@@ -1,0 +1,10 @@
+C:\Users\yakov\source\repos\Tensors\Tensors\bin\Debug\Tensors.exe.config
+C:\Users\yakov\source\repos\Tensors\Tensors\bin\Debug\Tensors.exe
+C:\Users\yakov\source\repos\Tensors\Tensors\bin\Debug\Tensors.pdb
+C:\Users\yakov\source\repos\Tensors\Tensors\obj\Debug\Tensors.csprojResolveAssemblyReference.cache
+C:\Users\yakov\source\repos\Tensors\Tensors\obj\Debug\Tensors.Properties.Resources.resources
+C:\Users\yakov\source\repos\Tensors\Tensors\obj\Debug\Tensors.csproj.GenerateResource.Cache
+C:\Users\yakov\source\repos\Tensors\Tensors\obj\Debug\Tensors.csproj.CoreCompileInputs.cache
+C:\Users\yakov\source\repos\Tensors\Tensors\obj\Debug\Tensors.exe
+C:\Users\yakov\source\repos\Tensors\Tensors\obj\Debug\Tensors.pdb
+C:\Users\yakov\source\repos\Tensors\Tensors\obj\Debug\Tensors.Form1.resources

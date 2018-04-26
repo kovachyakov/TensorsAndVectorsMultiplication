@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2005
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tensors", "Tensors\Tensors.csproj", "{608AA2FB-9872-4BD2-83CC-F0820B4A898B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tensors.Tests", "Tensors.Tests\Tensors.Tests.csproj", "{D8E47595-4158-46F4-95C4-FBFE712D810B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{608AA2FB-9872-4BD2-83CC-F0820B4A898B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{608AA2FB-9872-4BD2-83CC-F0820B4A898B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{608AA2FB-9872-4BD2-83CC-F0820B4A898B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{608AA2FB-9872-4BD2-83CC-F0820B4A898B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8E47595-4158-46F4-95C4-FBFE712D810B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8E47595-4158-46F4-95C4-FBFE712D810B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8E47595-4158-46F4-95C4-FBFE712D810B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8E47595-4158-46F4-95C4-FBFE712D810B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AD7D84E5-EE58-410C-BD5E-E3FB5CC51D17}
+	EndGlobalSection
+EndGlobal
