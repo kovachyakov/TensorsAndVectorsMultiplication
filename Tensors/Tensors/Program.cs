@@ -764,12 +764,15 @@ namespace Tensors
         /// </summary>
         public float ScalarMultiplication(vector a, vector b)
         {
+            float temp = a.i * b.i + a.j * b.j + a.k * b.k;
+
             LogForm.a += "\n" +"\n" + "Step : "+ "\n" +" =" 
                                           + a.i.ToString() + "i" + " * " + b.i.ToString() + "i" + " + "
                                           + a.j.ToString() + "j" + " * " + b.j.ToString() + "j" + " + "
-                                          + a.k.ToString() + "k" + " * " + b.k.ToString() + "k";
-
-            return a.i * b.i + a.j * b.j + a.k * b.k;
+                                          + a.k.ToString() + "k" + " * " + b.k.ToString() + "k" 
+                                          + " = " + temp.ToString();
+  
+            return temp;
         }
 
         /// <summary>
@@ -785,15 +788,18 @@ namespace Tensors
             LogForm.a += "\n" + "\n" + "Step : " +
                          "\n" + "i =" + a.i.ToString() + "i" + " * " + A.ii.ToString() + "ii" + " + "
                                       + a.j.ToString() + "j" + " * " + A.ji.ToString() + "ji" + " + "
-                                      + a.k.ToString() + "k" + " * " + A.ki.ToString() + "ki";
+                                      + a.k.ToString() + "k" + " * " + A.ki.ToString() + "ki" 
+                                          + " = " + temp.i.ToString();
 
             LogForm.a += "\n"  + "j =" + a.i.ToString() + "i" + " * " + A.ij.ToString() + "ij" + " + "
                                        + a.j.ToString() + "j" + " * " + A.jj.ToString() + "jj" + " + "
-                                       + a.k.ToString() + "k" + " * " + A.kj.ToString() + "kj";
+                                       + a.k.ToString() + "k" + " * " + A.kj.ToString() + "kj" 
+                                          + " = " + temp.j.ToString();
 
             LogForm.a += "\n"  + "k =" + a.i.ToString() + "i" + " * " + A.ik.ToString() + "ik" + " + "
                                        + a.j.ToString() + "j" + " * " + A.jk.ToString() + "jk" + " + "
-                                       + a.k.ToString() + "k" + " * " + A.kk.ToString() + "kk";
+                                       + a.k.ToString() + "k" + " * " + A.kk.ToString() + "kk" 
+                                          + " = " + temp.k.ToString();
 
             return temp;
         }
@@ -812,15 +818,18 @@ namespace Tensors
             LogForm.a += "\n" + "\n" + "Step : " +
                          "\n" + "i =" + A.ii.ToString() + "ii" + " * " + a.i.ToString() + "i" + " + "
                                       + A.ij.ToString() + "ij" + " * " + a.j.ToString() + "j" + " + "
-                                      + A.ik.ToString() + "ik" + " * " + a.k.ToString() + "k";
+                                      + A.ik.ToString() + "ik" + " * " + a.k.ToString() + "k" 
+                                          + " = " + temp.i.ToString();
 
             LogForm.a += "\n" + "j =" + A.ji.ToString() + "ji" + " * " + a.i.ToString() + "i" + " + "
                                       + A.jj.ToString() + "jj" + " * " + a.j.ToString() + "j" + " + "
-                                      + A.jk.ToString() + "jk" + " * " + a.k.ToString() + "k";
+                                      + A.jk.ToString() + "jk" + " * " + a.k.ToString() + "k" 
+                                          + " = " + temp.j.ToString();
 
             LogForm.a += "\n" + "k =" + A.ki.ToString() + "ki" + " * " + a.i.ToString() + "i" + " + "
                                       + A.kj.ToString() + "kj" + " * " + a.j.ToString() + "j" + " + "
-                                      + A.kk.ToString() + "kk" + " * " + a.k.ToString() + "k";
+                                      + A.kk.ToString() + "kk" + " * " + a.k.ToString() + "k" 
+                                          + " = " + temp.k.ToString();
 
             return temp;
         }
@@ -849,40 +858,49 @@ namespace Tensors
             LogForm.a += "\n" + "\n" + "Step : " +
                          "\n" + "ii =" + A.ii.ToString() + "ii" + " * " + B.ii.ToString() + "ii" + " + "
                                        + A.ij.ToString() + "ij" + " * " + B.ji.ToString() + "ji" + " + "
-                                       + A.ik.ToString() + "ik" + " * " + B.ki.ToString() + "ki";
+                                       + A.ik.ToString() + "ik" + " * " + B.ki.ToString() + "ki" 
+                                          + " = " + temp.ii.ToString();
 
             LogForm.a += "\n" + "ij =" + A.ii.ToString() + "ii" + " * " + B.ij.ToString() + "ij" + " + "
                                        + A.ij.ToString() + "ij" + " * " + B.jj.ToString() + "jj" + " + "
-                                       + A.ik.ToString() + "ik" + " * " + B.kj.ToString() + "kj";
+                                       + A.ik.ToString() + "ik" + " * " + B.kj.ToString() + "kj" 
+                                          + " = " + temp.ji.ToString();
 
             LogForm.a += "\n" + "ik =" + A.ii.ToString() + "ii" + " * " + B.ik.ToString() + "ik" + " + "
                                        + A.ij.ToString() + "ij" + " * " + B.jk.ToString() + "jk" + " + "
-                                       + A.ik.ToString() + "ik" + " * " + B.kk.ToString() + "kk";
+                                       + A.ik.ToString() + "ik" + " * " + B.kk.ToString() + "kk" 
+                                          + " = " + temp.ik.ToString();
 
             LogForm.a += "\n" + "ji =" + A.ji.ToString() + "ji" + " * " + B.ii.ToString() + "ii" + " + "
                                        + A.jj.ToString() + "jj" + " * " + B.ji.ToString() + "ji" + " + "
-                                       + A.jk.ToString() + "jk" + " * " + B.ki.ToString() + "ki";
+                                       + A.jk.ToString() + "jk" + " * " + B.ki.ToString() + "ki" 
+                                          + " = " + temp.ji.ToString();
 
             LogForm.a += "\n" + "jj =" + A.ji.ToString() + "ji" + " * " + B.ij.ToString() + "ij" + " + "
                                        + A.jj.ToString() + "jj" + " * " + B.jj.ToString() + "jj" + " + "
-                                       + A.jk.ToString() + "jk" + " * " + B.kj.ToString() + "kj";
+                                       + A.jk.ToString() + "jk" + " * " + B.kj.ToString() + "kj" 
+                                          + " = " + temp.jj.ToString();
 
             LogForm.a += "\n" + "jk =" + A.ji.ToString() + "ji" + " * " + B.ik.ToString() + "ik" + " + "
                                        + A.jj.ToString() + "jj" + " * " + B.jk.ToString() + "jk" + " + "
-                                       + A.jk.ToString() + "jk" + " * " + B.kk.ToString() + "kk";
-  
+                                       + A.jk.ToString() + "jk" + " * " + B.kk.ToString() + "kk" 
+                                          + " = " + temp.jk.ToString();
+
             LogForm.a += "\n" + "ki =" + A.ki.ToString() + "ki" + " * " + B.ii.ToString() + "ii" + " + "
                                        + A.kj.ToString() + "kj" + " * " + B.ji.ToString() + "ji" + " + "
-                                       + A.kk.ToString() + "kk" + " * " + B.ki.ToString() + "ki";
+                                       + A.kk.ToString() + "kk" + " * " + B.ki.ToString() + "ki" 
+                                          + " = " + temp.ki.ToString();
 
             LogForm.a += "\n" + "kj =" + A.ki.ToString() + "ki" + " * " + B.ij.ToString() + "ij" + " + "
                                        + A.kj.ToString() + "kj" + " * " + B.jj.ToString() + "jj" + " + "
-                                       + A.kk.ToString() + "kk" + " * " + B.kj.ToString() + "kj";
+                                       + A.kk.ToString() + "kk" + " * " + B.kj.ToString() + "kj" 
+                                          + " = " + temp.kj.ToString();
 
             LogForm.a += "\n" + "kk =" + A.ki.ToString() + "ki" + " * " + B.ik.ToString() + "ik" + " + "
                                        + A.kj.ToString() + "kj" + " * " + B.jk.ToString() + "jk" + " + "
-                                       + A.kk.ToString() + "kk" + " * " + B.kk.ToString() + "kk";
-          #endregion
+                                       + A.kk.ToString() + "kk" + " * " + B.kk.ToString() + "kk" 
+                                          + " = " + temp.kk.ToString();
+            #endregion
 
             return temp;
         }
@@ -896,23 +914,26 @@ namespace Tensors
         /// </summary>
         public vector VectorMultiplication(vector a, vector b)
         {
-            //vector c = new vector();
-            //c.i = a.j * b.k - b.j * a.k;
-            //c.j = b.i * a.k - a.i * b.k;
-            //c.k = a.i * b.j - b.i * a.j;
+            vector temp = new vector();
+            temp.i = a.j * b.k - b.j * a.k;
+            temp.j = b.i * a.k - a.i * b.k;
+            temp.k = a.i * b.j - b.i * a.j;
 
             LogForm.a += "\n"+"\n" + "Step : " +
                          "\n" + "i =" + a.j.ToString() + "j" + " * " + b.k.ToString() + "k" + " - "
-                                      + a.k.ToString() + "k" + " * " + b.j.ToString() + "j";
+                                      + a.k.ToString() + "k" + " * " + b.j.ToString() + "j" 
+                                          + " = " + temp.i.ToString();
 
             LogForm.a += "\n" + "j =" + a.k.ToString() + "k" + " * " + b.i.ToString() + "i" + " - "
-                                      + a.i.ToString() + "i" + " * " + b.k.ToString() + "k";
+                                      + a.i.ToString() + "i" + " * " + b.k.ToString() + "k" 
+                                          + " = " + temp.j.ToString();
 
             LogForm.a += "\n" + "k =" + a.i.ToString() + "i" + " * " + b.j.ToString() + "j" + " - "
-                                      + a.j.ToString() + "j" + " * " + b.i.ToString() + "i";
+                                      + a.j.ToString() + "j" + " * " + b.i.ToString() + "i" 
+                                          + " = " + temp.k.ToString();
 
 
-            return new vector(a.j * b.k - b.j * a.k, b.i * a.k - a.i * b.k, a.i * b.j - b.i * a.j);
+            return temp;
         }
 
         /// <summary>
@@ -938,31 +959,40 @@ namespace Tensors
 
             LogForm.a += "\n" + "\n" + "Step : " +
                          "\n" + "ii =" + a.j.ToString() + "j" + " * " + A.ki.ToString() + "ki" + " - "
-                                       + a.k.ToString() + "k" + " * " + A.ji.ToString() + "ji";
-                                       
+                                       + a.k.ToString() + "k" + " * " + A.ji.ToString() + "ji" 
+                                          + " = " + temp.ii.ToString();
+
             LogForm.a += "\n" + "ij =" + a.j.ToString() + "j" + " * " + A.kj.ToString() + "kj" + " - "
-                                       + a.k.ToString() + "k" + " * " + A.jj.ToString() + "jj";
+                                       + a.k.ToString() + "k" + " * " + A.jj.ToString() + "jj" 
+                                          + " = " + temp.ij.ToString();
 
             LogForm.a += "\n" + "ik =" + a.j.ToString() + "j" + " * " + A.kk.ToString() + "kk" + " - "
-                                       + a.k.ToString() + "k" + " * " + A.jk.ToString() + "jk";
+                                       + a.k.ToString() + "k" + " * " + A.jk.ToString() + "jk" 
+                                          + " = " + temp.ik.ToString();
 
             LogForm.a += "\n" + "ji =" + a.k.ToString() + "k" + " * " + A.ii.ToString() + "ii" + " - "
-                                       + a.i.ToString() + "i" + " * " + A.ki.ToString() + "ki";
+                                       + a.i.ToString() + "i" + " * " + A.ki.ToString() + "ki" 
+                                          + " = " + temp.ji.ToString();
 
             LogForm.a += "\n" + "jj =" + a.k.ToString() + "k" + " * " + A.ij.ToString() + "ij" + " - "
-                                       + a.i.ToString() + "i" + " * " + A.kj.ToString() + "kj";
+                                       + a.i.ToString() + "i" + " * " + A.kj.ToString() + "kj" 
+                                          + " = " + temp.jj.ToString();
 
             LogForm.a += "\n" + "jk =" + a.k.ToString() + "k" + " * " + A.ik.ToString() + "ik" + " - "
-                                       + a.i.ToString() + "i" + " * " + A.kk.ToString() + "kk";
+                                       + a.i.ToString() + "i" + " * " + A.kk.ToString() + "kk" 
+                                          + " = " + temp.jk.ToString();
 
             LogForm.a += "\n" + "ki =" + a.i.ToString() + "i" + " * " + A.ji.ToString() + "ji" + " - "
-                                       + a.j.ToString() + "j" + " * " + A.ii.ToString() + "ii";
+                                       + a.j.ToString() + "j" + " * " + A.ii.ToString() + "ii" 
+                                          + " = " + temp.ki.ToString();
 
             LogForm.a += "\n" + "kj =" + a.i.ToString() + "i" + " * " + A.jj.ToString() + "jj" + " - "
-                                       + a.j.ToString() + "j" + " * " + A.ij.ToString() + "ij";
+                                       + a.j.ToString() + "j" + " * " + A.ij.ToString() + "ij" 
+                                          + " = " + temp.kj.ToString();
 
             LogForm.a += "\n" + "kk =" + a.i.ToString() + "i" + " * " + A.jk.ToString() + "jk" + " - "
-                                       + a.j.ToString() + "j" + " * " + A.ik.ToString() + "ik";
+                                       + a.j.ToString() + "j" + " * " + A.ik.ToString() + "ik" 
+                                          + " = " + temp.kk.ToString();
             #endregion
 
             return temp;
@@ -991,32 +1021,41 @@ namespace Tensors
 
             LogForm.a += "\n" + "\n" + "Step : " +
                          "\n" + "ii =" + A.ij.ToString() + "ij" + " * " + a.k.ToString() + "k" + " - "
-                                       + A.ik.ToString() + "ik" + " * " + a.j.ToString() + "j";
+                                       + A.ik.ToString() + "ik" + " * " + a.j.ToString() + "j"
+                                          + " = " + temp.ii.ToString();
 
             LogForm.a += "\n" + "ij =" + A.ik.ToString() + "ik" + " * " + a.i.ToString() + "i" + " - "
-                                       + A.ii.ToString() + "ii" + " * " + a.k.ToString() + "k";
+                                       + A.ii.ToString() + "ii" + " * " + a.k.ToString() + "k"
+                                          + " = " + temp.ij.ToString();
 
             LogForm.a += "\n" + "ik =" + A.ii.ToString() + "ii" + " * " + a.j.ToString() + "j" + " - "
-                                       + A.ij.ToString() + "ij" + " * " + a.i.ToString() + "i";
+                                       + A.ij.ToString() + "ij" + " * " + a.i.ToString() + "i" 
+                                          + " = " + temp.ik.ToString();
 
             LogForm.a += "\n" + "ji =" + A.jj.ToString() + "jj" + " * " + a.k.ToString() + "k" + " - "
-                                       + A.jk.ToString() + "jk" + " * " + a.j.ToString() + "j";
+                                       + A.jk.ToString() + "jk" + " * " + a.j.ToString() + "j"
+                                          + " = " + temp.ji.ToString();
 
             LogForm.a += "\n" + "jj =" + A.jk.ToString() + "jk" + " * " + a.i.ToString() + "i" + " - "
-                                       + A.ji.ToString() + "ji" + " * " + a.k.ToString() + "k";
+                                       + A.ji.ToString() + "ji" + " * " + a.k.ToString() + "k" 
+                                          + " = " + temp.jj.ToString();
 
             LogForm.a += "\n" + "jk =" + A.ji.ToString() + "ji" + " * " + a.j.ToString() + "j" + " - "
-                                       + A.jj.ToString() + "jj" + " * " + a.i.ToString() + "i";
-         
+                                       + A.jj.ToString() + "jj" + " * " + a.i.ToString() + "i" 
+                                          + " = " + temp.jk.ToString();
+
             LogForm.a += "\n" + "ki =" + A.kj.ToString() + "kj" + " * " + a.k.ToString() + "k" + " - "
-                                       + A.kk.ToString() + "kk" + " * " + a.j.ToString() + "j";
+                                       + A.kk.ToString() + "kk" + " * " + a.j.ToString() + "j" 
+                                          + " = " + temp.ki.ToString();
 
             LogForm.a += "\n" + "kj =" + A.kk.ToString() + "kk" + " * " + a.i.ToString() + "i" + " - "
-                                       + A.ki.ToString() + "ki" + " * " + a.k.ToString() + "k";
+                                       + A.ki.ToString() + "ki" + " * " + a.k.ToString() + "k" 
+                                          + " = " + temp.kj.ToString();
 
             LogForm.a += "\n" + "kk =" + A.ki.ToString() + "ki" + " * " + a.j.ToString() + "j" + " - "
-                                       + A.kj.ToString() + "kj" + " * " + a.i.ToString() + "i";
-   #endregion
+                                       + A.kj.ToString() + "kj" + " * " + a.i.ToString() + "i" 
+                                          + " = " + temp.kk.ToString();
+            #endregion
 
             return temp;
         }
@@ -1043,15 +1082,16 @@ namespace Tensors
                  ;
 
             LogForm.a += "\n" + "\n" + "Step : " +
-                 "\n" + " =" + A.ii.ToString() + "ii" + " * " + B.ii.ToString() + "ii" +
-                               A.ij.ToString() + "ij" + " * " + B.ji.ToString() + "ji" +
-                               A.ik.ToString() + "ik" + " * " + B.ki.ToString() + "ki" +
-                               A.ji.ToString() + "ji" + " * " + B.ij.ToString() + "ij" +
-                               A.jj.ToString() + "jj" + " * " + B.jj.ToString() + "jj" +
-                               A.jk.ToString() + "jk" + " * " + B.kj.ToString() + "kj" +
-                               A.ki.ToString() + "ki" + " * " + B.ik.ToString() + "ik" +
-                               A.kj.ToString() + "kj" + " * " + B.jk.ToString() + "jk" +
-                               A.kk.ToString() + "kk" + " * " + B.kk.ToString() + "kk";
+                 "\n" + " =" + A.ii.ToString() + "ii" + " * " + B.ii.ToString() + "ii" + " + " +
+                               A.ij.ToString() + "ij" + " * " + B.ji.ToString() + "ji" + " + " +
+                               A.ik.ToString() + "ik" + " * " + B.ki.ToString() + "ki" + " + " +
+                               A.ji.ToString() + "ji" + " * " + B.ij.ToString() + "ij" + " + " +
+                               A.jj.ToString() + "jj" + " * " + B.jj.ToString() + "jj" + " + " +
+                               A.jk.ToString() + "jk" + " * " + B.kj.ToString() + "kj" + " + " +
+                               A.ki.ToString() + "ki" + " * " + B.ik.ToString() + "ik" + " + " +
+                               A.kj.ToString() + "kj" + " * " + B.jk.ToString() + "jk" + " + " +
+                               A.kk.ToString() + "kk" + " * " + B.kk.ToString() + "kk"
+                                          + " = " + temp.ToString(); ;
                              
 
 
@@ -1081,22 +1121,25 @@ namespace Tensors
                                       + A.jk.ToString() + "jk" + " * " + B.kk.ToString() + "kk" + " - "
                                       + A.ki.ToString() + "ki" + " * " + B.ij.ToString() + "ij" + " - "
                                       + A.kj.ToString() + "kj" + " * " + B.jj.ToString() + "jj" + " - "
-                                      + A.kk.ToString() + "kk" + " * " + B.kj.ToString() + "kj";
+                                      + A.kk.ToString() + "kk" + " * " + B.kj.ToString() + "kj"
+                                          + " = " + temp.i.ToString();
 
             LogForm.a += "\n" + "j =" + A.ki.ToString() + "ki" + " * " + B.ii.ToString() + "ii" + " + "
                                       + A.kj.ToString() + "kj" + " * " + B.ji.ToString() + "ji" + " + "
                                       + A.kk.ToString() + "kk" + " * " + B.ki.ToString() + "ki" + " - "
                                       + A.ii.ToString() + "ii" + " * " + B.ik.ToString() + "ik" + " - "
                                       + A.ij.ToString() + "ij" + " * " + B.jk.ToString() + "jk" + " - "
-                                      + A.ik.ToString() + "ik" + " * " + B.kk.ToString() + "kk";
+                                      + A.ik.ToString() + "ik" + " * " + B.kk.ToString() + "kk"
+                                          + " = " + temp.j.ToString();
 
             LogForm.a += "\n" + "k =" + A.ii.ToString() + "ii" + " * " + B.ij.ToString() + "ij" + " + "
                                       + A.ij.ToString() + "ij" + " * " + B.jj.ToString() + "jj" + " + "
                                       + A.ik.ToString() + "ik" + " * " + B.kj.ToString() + "kj" + " - "
                                       + A.ji.ToString() + "ji" + " * " + B.ii.ToString() + "ii" + " - "
                                       + A.jj.ToString() + "jj" + " * " + B.ji.ToString() + "ji" + " - "
-                                      + A.jk.ToString() + "jk" + " * " + B.ki.ToString() + "ki";
-#endregion
+                                      + A.jk.ToString() + "jk" + " * " + B.ki.ToString() + "ki"
+                                          + " = " + temp.k.ToString();
+            #endregion
 
             return temp;
         }
@@ -1124,21 +1167,24 @@ namespace Tensors
                                       + A.kj.ToString() + "kj" + " * " + B.kk.ToString() + "kk" + " - "
                                       + A.ik.ToString() + "ik" + " * " + B.ji.ToString() + "ji" + " - "
                                       + A.jk.ToString() + "jk" + " * " + B.jj.ToString() + "jj" + " - "
-                                      + A.kk.ToString() + "kk" + " * " + B.jk.ToString() + "jk";
+                                      + A.kk.ToString() + "kk" + " * " + B.jk.ToString() + "jk"
+                                          + " = " + temp.i.ToString();
 
             LogForm.a += "\n" + "j =" + A.ik.ToString() + "ik" + " * " + B.ii.ToString() + "ii" + " + "
                                       + A.jk.ToString() + "jk" + " * " + B.ij.ToString() + "ij" + " + "
                                       + A.kk.ToString() + "kk" + " * " + B.ik.ToString() + "ik" + " - "
                                       + A.ii.ToString() + "ii" + " * " + B.ki.ToString() + "ki" + " - "
                                       + A.ji.ToString() + "ji" + " * " + B.kj.ToString() + "kj" + " - "
-                                      + A.ki.ToString() + "ki" + " * " + B.kk.ToString() + "kk";
+                                      + A.ki.ToString() + "ki" + " * " + B.kk.ToString() + "kk"
+                                          + " = " + temp.j.ToString();
 
             LogForm.a += "\n" + "k =" + A.ii.ToString() + "ii" + " * " + B.ji.ToString() + "ji" + " + "
                                       + A.ji.ToString() + "ji" + " * " + B.jj.ToString() + "jj" + " + "
                                       + A.ki.ToString() + "ki" + " * " + B.jk.ToString() + "jk" + " - "
                                       + A.ij.ToString() + "ij" + " * " + B.ii.ToString() + "ii" + " - "
                                       + A.jj.ToString() + "jj" + " * " + B.ij.ToString() + "ij" + " - "
-                                      + A.kj.ToString() + "kj" + " * " + B.ik.ToString() + "ik";
+                                      + A.kj.ToString() + "kj" + " * " + B.ik.ToString() + "ik"
+                                          + " = " + temp.k.ToString();
             #endregion
 
             return temp;
@@ -1181,51 +1227,60 @@ namespace Tensors
  #region
 
             LogForm.a += "\n" + "\n" + "Step : " +
-                         "\n" + "ii =" + A.jj.ToString() + "jj" + " * " + B.kk.ToString() + "kk" + "+" +
-                                         A.kk.ToString() + "kk" + " * " + B.jj.ToString() + "jj" + "-" +
-                                         A.kj.ToString() + "kj" + " * " + B.kj.ToString() + "kj" + "-" +
-                                         A.jk.ToString() + "jk" + " * " + B.jk.ToString() + "jk";
+                         "\n" + "ii =" + A.jj.ToString() + "jj" + " * " + B.kk.ToString() + "kk" + " + " +
+                                         A.kk.ToString() + "kk" + " * " + B.jj.ToString() + "jj" + " - " +
+                                         A.kj.ToString() + "kj" + " * " + B.kj.ToString() + "kj" + " - " +
+                                         A.jk.ToString() + "jk" + " * " + B.jk.ToString() + "jk"
+                                          + " = " + temp.ii.ToString();
 
-            LogForm.a += "\n" + "ij =" + A.ki.ToString() + "ki" + " * " + B.kj.ToString() + "kj" + "+" +
-                                         A.jk.ToString() + "jk" + " * " + B.ik.ToString() + "ik" + "-" +
-                                         A.ji.ToString() + "ji" + " * " + B.kk.ToString() + "kk" + "-" +
-                                         A.kk.ToString() + "kk" + " * " + B.ij.ToString() + "ij";
-            
-            LogForm.a += "\n" + "ik =" + A.ji.ToString() + "ji" + " * " + B.jk.ToString() + "jk" + "+" +
-                                         A.kj.ToString() + "kj" + " * " + B.ij.ToString() + "ij" + "-" +
-                                         A.ki.ToString() + "ki" + " * " + B.jj.ToString() + "jj" + "-" +
-                                         A.jj.ToString() + "jj" + " * " + B.ik.ToString() + "ik";
+            LogForm.a += "\n" + "ij =" + A.ki.ToString() + "ki" + " * " + B.kj.ToString() + "kj" + " + " +
+                                         A.jk.ToString() + "jk" + " * " + B.ik.ToString() + "ik" + " - " +
+                                         A.ji.ToString() + "ji" + " * " + B.kk.ToString() + "kk" + " - " +
+                                         A.kk.ToString() + "kk" + " * " + B.ij.ToString() + "ij"
+                                          + " = " + temp.ij.ToString();
 
-            LogForm.a += "\n" + "ji =" + A.ik.ToString() + "ik" + " * " + B.jk.ToString() + "jk" + "+" +
-                                         A.kj.ToString() + "kj" + " * " + B.ki.ToString() + "ki" + "-" +
-                                         A.ij.ToString() + "ij" + " * " + B.kk.ToString() + "kk" + "-" +
-                                         A.kk.ToString() + "kk" + " * " + B.ji.ToString() + "ji";
+            LogForm.a += "\n" + "ik =" + A.ji.ToString() + "ji" + " * " + B.jk.ToString() + "jk" + " + " +
+                                         A.kj.ToString() + "kj" + " * " + B.ij.ToString() + "ij" + " - " +
+                                         A.ki.ToString() + "ki" + " * " + B.jj.ToString() + "jj" + " - " +
+                                         A.jj.ToString() + "jj" + " * " + B.ik.ToString() + "ik"
+                                          + " = " + temp.ik.ToString();
 
-            LogForm.a += "\n" + "jj =" + A.ii.ToString() + "ii" + " * " + B.kk.ToString() + "kk" + "+" +
-                                         A.kk.ToString() + "kk" + " * " + B.ii.ToString() + "ii" + "-" +
-                                         A.ik.ToString() + "ik" + " * " + B.ik.ToString() + "ik" + "-" +
-                                         A.ki.ToString() + "ki" + " * " + B.ki.ToString() + "ki";
+            LogForm.a += "\n" + "ji =" + A.ik.ToString() + "ik" + " * " + B.jk.ToString() + "jk" + " + " +
+                                         A.kj.ToString() + "kj" + " * " + B.ki.ToString() + "ki" + " - " +
+                                         A.ij.ToString() + "ij" + " * " + B.kk.ToString() + "kk" + " - " +
+                                         A.kk.ToString() + "kk" + " * " + B.ji.ToString() + "ji"
+                                          + " = " + temp.ji.ToString();
 
-            LogForm.a += "\n" + "jk =" + A.ij.ToString() + "ij" + " * " + B.ik.ToString() + "ki" + "+" +
-                                         A.ki.ToString() + "ki" + " * " + B.ji.ToString() + "ji" + "-" +
-                                         A.ii.ToString() + "ii" + " * " + B.jk.ToString() + "jk" + "-" +
-                                         A.kj.ToString() + "kj" + " * " + B.ii.ToString() + "ii";
+            LogForm.a += "\n" + "jj =" + A.ii.ToString() + "ii" + " * " + B.kk.ToString() + "kk" + " + " +
+                                         A.kk.ToString() + "kk" + " * " + B.ii.ToString() + "ii" + " - " +
+                                         A.ik.ToString() + "ik" + " * " + B.ik.ToString() + "ik" + " - " +
+                                         A.ki.ToString() + "ki" + " * " + B.ki.ToString() + "ki"
+                                          + " = " + temp.jj.ToString();
 
-            LogForm.a += "\n" + "ki =" + A.ij.ToString() + "ij" + " * " + B.kj.ToString() + "kj" + "+" +
-                                         A.jk.ToString() + "jk" + " * " + B.ji.ToString() + "ji" + "-" +
-                                         A.jj.ToString() + "jj" + " * " + B.ki.ToString() + "ki" + "-" +
-                                         A.ik.ToString() + "ik" + " * " + B.jj.ToString() + "jj";
+            LogForm.a += "\n" + "jk =" + A.ij.ToString() + "ij" + " * " + B.ik.ToString() + "ki" + " + " +
+                                         A.ki.ToString() + "ki" + " * " + B.ji.ToString() + "ji" + " - " +
+                                         A.ii.ToString() + "ii" + " * " + B.jk.ToString() + "jk" + " - " +
+                                         A.kj.ToString() + "kj" + " * " + B.ii.ToString() + "ii"
+                                          + " = " + temp.jk.ToString();
 
-            LogForm.a += "\n" + "kj =" + A.ik.ToString() + "ik" + " * " + B.ij.ToString() + "ij" + "+" +
-                                         A.ji.ToString() + "ji" + " * " + B.ki.ToString() + "ki" + "-" +
-                                         A.ii.ToString() + "ii" + " * " + B.kj.ToString() + "kj" + "-" +
-                                         A.jk.ToString() + "jk" + " * " + B.ii.ToString() + "ii";
+            LogForm.a += "\n" + "ki =" + A.ij.ToString() + "ij" + " * " + B.kj.ToString() + "kj" + " + " +
+                                         A.jk.ToString() + "jk" + " * " + B.ji.ToString() + "ji" + " - " +
+                                         A.jj.ToString() + "jj" + " * " + B.ki.ToString() + "ki" + " - " +
+                                         A.ik.ToString() + "ik" + " * " + B.jj.ToString() + "jj"
+                                          + " = " + temp.ki.ToString();
 
-            LogForm.a += "\n" + "kk =" + A.ii.ToString() + "ii" + " * " + B.jj.ToString() + "jj" + "+" +
-                                         A.jj.ToString() + "jj" + " * " + B.ii.ToString() + "ii" + "-" +
-                                         A.ij.ToString() + "ij" + " * " + B.ij.ToString() + "ij" + "-" +
-                                         A.ji.ToString() + "ji" + " * " + B.ji.ToString() + "ji";
-#endregion
+            LogForm.a += "\n" + "kj =" + A.ik.ToString() + "ik" + " * " + B.ij.ToString() + "ij" + " + " +
+                                         A.ji.ToString() + "ji" + " * " + B.ki.ToString() + "ki" + " - " +
+                                         A.ii.ToString() + "ii" + " * " + B.kj.ToString() + "kj" + " - " +
+                                         A.jk.ToString() + "jk" + " * " + B.ii.ToString() + "ii"
+                                          + " = " + temp.kj.ToString();
+
+            LogForm.a += "\n" + "kk =" + A.ii.ToString() + "ii" + " * " + B.jj.ToString() + "jj" + " + " +
+                                         A.jj.ToString() + "jj" + " * " + B.ii.ToString() + "ii" + " - " +
+                                         A.ij.ToString() + "ij" + " * " + B.ij.ToString() + "ij" + " - " +
+                                         A.ji.ToString() + "ji" + " * " + B.ji.ToString() + "ji"
+                                          + " = " + temp.kk.ToString();
+            #endregion
 
             return temp;
         }
@@ -1274,23 +1329,32 @@ namespace Tensors
             #region
 
             LogForm.a += "\n" + "\n" + "Step : " +
-                         "\n" + "ii =" + a.i.ToString() + "i" + " * " + b.i.ToString() + "i";
+                         "\n" + "ii =" + a.i.ToString() + "i" + " * " + b.i.ToString() + "i"
+                                          + " = " + temp.ii.ToString();
 
-            LogForm.a += "\n" + "ij =" + a.i.ToString() + "i" + " * " + b.j.ToString() + "j";
+            LogForm.a += "\n" + "ij =" + a.i.ToString() + "i" + " * " + b.j.ToString() + "j"
+                                          + " = " + temp.ij.ToString();
 
-            LogForm.a += "\n" + "ik =" + a.i.ToString() + "i" + " * " + b.k.ToString() + "k";
+            LogForm.a += "\n" + "ik =" + a.i.ToString() + "i" + " * " + b.k.ToString() + "k"
+                                          + " = " + temp.ik.ToString();
 
-            LogForm.a += "\n" + "ji =" + a.j.ToString() + "j" + " * " + b.i.ToString() + "i";
+            LogForm.a += "\n" + "ji =" + a.j.ToString() + "j" + " * " + b.i.ToString() + "i"
+                                          + " = " + temp.ji.ToString();
 
-            LogForm.a += "\n" + "jj =" + a.j.ToString() + "j" + " * " + b.j.ToString() + "j";
+            LogForm.a += "\n" + "jj =" + a.j.ToString() + "j" + " * " + b.j.ToString() + "j"
+                                          + " = " + temp.jj.ToString();
 
-            LogForm.a += "\n" + "jk =" + a.j.ToString() + "j" + " * " + b.k.ToString() + "k";
+            LogForm.a += "\n" + "jk =" + a.j.ToString() + "j" + " * " + b.k.ToString() + "k"
+                                          + " = " + temp.jk.ToString();
 
-            LogForm.a += "\n" + "ki =" + a.k.ToString() + "k" + " * " + b.i.ToString() + "i";
+            LogForm.a += "\n" + "ki =" + a.k.ToString() + "k" + " * " + b.i.ToString() + "i"
+                                          + " = " + temp.ki.ToString();
 
-            LogForm.a += "\n" + "kj =" + a.k.ToString() + "k" + " * " + b.j.ToString() + "j";
+            LogForm.a += "\n" + "kj =" + a.k.ToString() + "k" + " * " + b.j.ToString() + "j"
+                                          + " = " + temp.kj.ToString();
 
-            LogForm.a += "\n" + "kk =" + a.k.ToString() + "k" + " * " + b.k.ToString() + "k";
+            LogForm.a += "\n" + "kk =" + a.k.ToString() + "k" + " * " + b.k.ToString() + "k"
+                                          + " = " + temp.kk.ToString();
             #endregion
 
             return temp;
@@ -1483,13 +1547,13 @@ namespace Tensors
             
             var panel = new Panel()
             {
-                Location = new Point(10, 10),
+                Location = new Point(10, 60),
                 Size = new Size(350, 5000),
             };
 
             var log = new Label()
             {
-                Location = new Point(10, 60),
+                Location = new Point(10, 10),
                 Size = new Size(340, 5000),
                 Font = new Font("Arial", 12, FontStyle.Regular),
                 Text = a,
@@ -1536,8 +1600,12 @@ namespace Tensors
                 a = "        Your log:";
                 log.Text = a;
             }
-            panel.Controls.Add(button);
-            panel.Controls.Add(buttonErase);
+            //panel.Controls.Add(button);
+            //panel.Controls.Add(buttonErase);
+
+            Controls.Add(button);
+            Controls.Add(buttonErase);
+
             panel.Controls.Add(log);
             Controls.Add(panel);
             Controls.Add(scrollbar);
