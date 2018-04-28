@@ -732,15 +732,15 @@ namespace Tensors
                 }
             }
             textBoxArray[0, 0].Text = answ.ii.ToString();
-            textBoxArray[0, 1].Text = answ.ij.ToString();
-            textBoxArray[0, 2].Text = answ.ik.ToString();
+            textBoxArray[0, 1].Text = answ.ji.ToString();
+            textBoxArray[0, 2].Text = answ.ki.ToString();
 
-            textBoxArray[1, 0].Text = answ.ji.ToString();
+            textBoxArray[1, 0].Text = answ.ij.ToString();
             textBoxArray[1, 1].Text = answ.jj.ToString();
-            textBoxArray[1, 2].Text = answ.jk.ToString();
+            textBoxArray[1, 2].Text = answ.kj.ToString();
 
-            textBoxArray[2, 0].Text = answ.ki.ToString();
-            textBoxArray[2, 1].Text = answ.kj.ToString();
+            textBoxArray[2, 0].Text = answ.ik.ToString();
+            textBoxArray[2, 1].Text = answ.jk.ToString();
             textBoxArray[2, 2].Text = answ.kk.ToString();
         }
         public void ClearAnsw(TextBox[,] textBoxArray)
