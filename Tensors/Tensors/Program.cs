@@ -231,6 +231,8 @@ namespace Tensors
 
             #endregion
 
+            
+
 
             var element1 = new ComboBox()
             {
@@ -296,6 +298,21 @@ namespace Tensors
             };
 
 
+            var tipText = new Label()
+            {
+                Location = new Point(copyButton.Location.X + 160, copyButton.Location.Y - 100),
+                Size = new Size(120, 300),
+                Text = "Tip for you:" + "\n" + "\n" +
+                 "vector = ( i, j, k )" + "\n" + "\n" +
+                 "             | ii,  ij,  ik  |" + "\n" +
+                 "tensor =| ji,  jj,  jk  |" + "\n" +
+                 "             | ki, kj, kk |",
+                Font = new Font("Arial",10),
+            };
+
+            
+
+
             var logbutton = new Button()
             {
                 Location = new Point(button.Location.X, button.Location.Y+50),
@@ -327,6 +344,7 @@ namespace Tensors
             Controls.Add(answPanel);
 
             Controls.Add(logbutton);
+            Controls.Add(tipText);
 
             element1.SelectedIndexChanged += ChangePanel1;
             element2.SelectedIndexChanged += ChangePanel2;
@@ -635,9 +653,8 @@ namespace Tensors
             {
                 if ((string)actCombobox.SelectedItem != "tr")
                 {
-                    if (answTextbox[0,0].Enabled)
-                    {
-                        if (!arraytextbox[0, 0].Enabled)
+                    
+                        if ((answTextbox[1, 1].Enabled)&&(!answTextbox[2, 2].Enabled))
                         {
                             element1.SelectedIndex = 0;
 
@@ -662,7 +679,7 @@ namespace Tensors
                             arraytextbox[1, 2].Text = answTextbox[1, 2].Text;
                             arraytextbox[2, 2].Text = answTextbox[2, 2].Text;
                         }
-                    }
+                    
                 }
             }
         }
@@ -864,7 +881,7 @@ namespace Tensors
             LogForm.a += "\n" + "ij =" + A.ii.ToString() + "ii" + " * " + B.ij.ToString() + "ij" + " + "
                                        + A.ij.ToString() + "ij" + " * " + B.jj.ToString() + "jj" + " + "
                                        + A.ik.ToString() + "ik" + " * " + B.kj.ToString() + "kj" 
-                                          + " = " + temp.ji.ToString();
+                                          + " = " + temp.ij.ToString();
 
             LogForm.a += "\n" + "ik =" + A.ii.ToString() + "ii" + " * " + B.ik.ToString() + "ik" + " + "
                                        + A.ij.ToString() + "ij" + " * " + B.jk.ToString() + "jk" + " + "
@@ -1329,31 +1346,31 @@ namespace Tensors
             #region
 
             LogForm.a += "\n" + "\n" + "Step : " +
-                         "\n" + "ii =" + a.i.ToString() + "i" + " * " + b.i.ToString() + "i"
+                         "\n" + "ii =" + a.i.ToString() + "i" + " ⊗ " + b.i.ToString() + "i"
                                           + " = " + temp.ii.ToString();
 
-            LogForm.a += "\n" + "ij =" + a.i.ToString() + "i" + " * " + b.j.ToString() + "j"
+            LogForm.a += "\n" + "ij =" + a.i.ToString() + "i" + " ⊗ " + b.j.ToString() + "j"
                                           + " = " + temp.ij.ToString();
 
-            LogForm.a += "\n" + "ik =" + a.i.ToString() + "i" + " * " + b.k.ToString() + "k"
+            LogForm.a += "\n" + "ik =" + a.i.ToString() + "i" + " ⊗ " + b.k.ToString() + "k"
                                           + " = " + temp.ik.ToString();
 
-            LogForm.a += "\n" + "ji =" + a.j.ToString() + "j" + " * " + b.i.ToString() + "i"
+            LogForm.a += "\n" + "ji =" + a.j.ToString() + "j" + " ⊗ " + b.i.ToString() + "i"
                                           + " = " + temp.ji.ToString();
 
-            LogForm.a += "\n" + "jj =" + a.j.ToString() + "j" + " * " + b.j.ToString() + "j"
+            LogForm.a += "\n" + "jj =" + a.j.ToString() + "j" + " ⊗ " + b.j.ToString() + "j"
                                           + " = " + temp.jj.ToString();
 
-            LogForm.a += "\n" + "jk =" + a.j.ToString() + "j" + " * " + b.k.ToString() + "k"
+            LogForm.a += "\n" + "jk =" + a.j.ToString() + "j" + " ⊗ " + b.k.ToString() + "k"
                                           + " = " + temp.jk.ToString();
 
-            LogForm.a += "\n" + "ki =" + a.k.ToString() + "k" + " * " + b.i.ToString() + "i"
+            LogForm.a += "\n" + "ki =" + a.k.ToString() + "k" + " ⊗ " + b.i.ToString() + "i"
                                           + " = " + temp.ki.ToString();
 
-            LogForm.a += "\n" + "kj =" + a.k.ToString() + "k" + " * " + b.j.ToString() + "j"
+            LogForm.a += "\n" + "kj =" + a.k.ToString() + "k" + " ⊗ " + b.j.ToString() + "j"
                                           + " = " + temp.kj.ToString();
 
-            LogForm.a += "\n" + "kk =" + a.k.ToString() + "k" + " * " + b.k.ToString() + "k"
+            LogForm.a += "\n" + "kk =" + a.k.ToString() + "k" + " ⊗ " + b.k.ToString() + "k"
                                           + " = " + temp.kk.ToString();
             #endregion
 
@@ -1544,7 +1561,8 @@ namespace Tensors
 
         public LogForm()
         {
-            
+           
+
             var panel = new Panel()
             {
                 Location = new Point(10, 60),
@@ -1553,7 +1571,7 @@ namespace Tensors
 
             var log = new Label()
             {
-                Location = new Point(10, 10),
+                Location = new Point(10, 60),
                 Size = new Size(340, 5000),
                 Font = new Font("Arial", 12, FontStyle.Regular),
                 Text = a,
@@ -1565,6 +1583,7 @@ namespace Tensors
             };
 
             scrollbar.Scroll += Scrollevent;
+            Load += Scrollevent;
 
             var button = new Button()
             {
@@ -1599,6 +1618,8 @@ namespace Tensors
             {
                 a = "        Your log:";
                 log.Text = a;
+                log.Location = new Point(10, 60);
+
             }
             //panel.Controls.Add(button);
             //panel.Controls.Add(buttonErase);
