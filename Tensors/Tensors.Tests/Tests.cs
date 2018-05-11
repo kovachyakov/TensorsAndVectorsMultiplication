@@ -294,33 +294,33 @@ namespace Tensors.Tests
             MyForm testClass = new MyForm();
 
 
-            var A = new tensor(3, 4, 0,
-                               2, 0, 0,
-                               0, -5, 0);
+            var A = new tensor(1, 0, 4,
+                               3, 2, 0,
+                               0, 0, 0);
 
-            var B = new tensor(4, 0, -1,
-                               1, -5, 0,
-                               2, 0, 0);
+            var B = new tensor(0, 2, 1,
+                               0, 5, 0,
+                               3, 0, 0);
 
             var result = testClass.TwiceVector(A, B);
 
-            Assert.AreEqual(new tensor(0, 0, 0,
-                                      -10, 0, 16,
-                                       0, 4, -17), result);
+            Assert.AreEqual(new tensor(0, 0, -26,
+                                       0, -4, 17,
+                                       -2, 0, 5), result);
 
-            var C = new tensor(0, 3, 0,
-                               0, -2, 6,
-                               7, 0, 1);
-
-            var D = new tensor(0, -1, 0,
+            var C = new tensor(0, 6, 0,
                                0, 0, 4,
-                               0, 8, 6);
+                               1, 3, 1);
+
+            var D = new tensor(1, 0, 0,
+                               3, 0, 1,
+                               0, 4, 2);
 
             var result1 = testClass.TwiceVector(C, D);
 
-            Assert.AreEqual(new tensor(-36, 57, 0,
-                                       -18, 0, 0,
-                                        24, 0, 3), result1);
+            Assert.AreEqual(new tensor(-16, -15, 36,
+                                         4,   1, -4,
+                                         0,   0,  0), result1);
 
         }
 
